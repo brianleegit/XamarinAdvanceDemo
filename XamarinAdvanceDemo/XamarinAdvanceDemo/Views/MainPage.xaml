@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinAdvanceDemo.Views.MainPage">
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <StackLayout>
+
+    <Image x:Name="CoverImage"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           WidthRequest="300"
+           HeightRequest="300"/>
+
+    <Button Text="Camera GO GO"
+            TextColor="Green"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            FontSize="26"
+            BorderWidth="3"
+            BorderColor="White"
+            FontAttributes="Bold"
+            BackgroundColor="#66B3FF"
+            BorderRadius="10"
+            WidthRequest="250"
+            HeightRequest="80"
+            x:Name="FindBtn"
+                />
+
+  </StackLayout>
+</ContentPage>

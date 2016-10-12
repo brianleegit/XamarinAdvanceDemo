@@ -13,7 +13,7 @@ namespace XamarinAdvanceDemo
         {
             InitializeComponent();
 
-            MainPage = new XamarinAdvanceDemo.MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
