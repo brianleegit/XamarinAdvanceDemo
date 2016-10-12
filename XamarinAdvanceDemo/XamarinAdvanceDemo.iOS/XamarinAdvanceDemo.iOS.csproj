@@ -10,7 +10,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>XamarinAdvanceDemo.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>XamarinAdvanceDemo.iOS</AssemblyName>
+    <AssemblyName>XamarinAdvanceDemoiOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
