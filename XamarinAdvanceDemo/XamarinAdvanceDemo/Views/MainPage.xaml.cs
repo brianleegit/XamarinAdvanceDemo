@@ -17,6 +17,12 @@ namespace XamarinAdvanceDemo.Views
         {
             InitializeComponent();
             FindBtn.Clicked += OnFindBtnClicked;
+            ManageBtn.Clicked += ManageBtn_Clicked;
+        }
+
+        private async void ManageBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ManageLayout(), true); 
         }
 
         public async void OnFindBtnClicked(object sender, EventArgs e)

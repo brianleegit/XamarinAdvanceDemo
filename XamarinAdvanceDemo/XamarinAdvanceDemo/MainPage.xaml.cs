@@ -12,6 +12,13 @@ namespace XamarinAdvanceDemo
         public MainPage()
         {
             InitializeComponent();
+            test();
+        }
+        async void test()
+        {
+            await Navigation.PushAsync(new Views.ManageLayout(), true);  //open list page 
+           // Cognitive.FaceIdentify fi = new Cognitive.FaceIdentify();
+           // fi.checkGroupSetting();
         }
     }
 }
