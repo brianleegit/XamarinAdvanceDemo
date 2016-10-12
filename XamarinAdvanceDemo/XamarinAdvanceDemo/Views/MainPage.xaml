@@ -11,7 +11,20 @@
            VerticalOptions="CenterAndExpand"
            WidthRequest="300"
            HeightRequest="300"/>
-
+    <Button Text="Camera GO GO"
+                TextColor="Green"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                FontSize="26"
+                BorderWidth="3"
+                BorderColor="White"
+                FontAttributes="Bold"
+                BackgroundColor="#66B3FF"
+                BorderRadius="10"
+                WidthRequest="250"
+                HeightRequest="80"
+                x:Name="ManageBtn"
+                />
     <Button Text="Camera GO GO"
             TextColor="Green"
             HorizontalOptions="Center"
