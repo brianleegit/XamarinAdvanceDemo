@@ -9,6 +9,6 @@ namespace XamarinAdvanceDemo.Models
     class Friends
     {
         public string Name { get; set; }
-        public string PersonID { get; set; }
+        public string PicNum { get; set; }
     }
 }

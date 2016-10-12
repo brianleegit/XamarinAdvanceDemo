@@ -7,25 +7,50 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using XamarinAdvanceDemo.Models;
+using Acr.UserDialogs;
+using Windows.UI.Xaml.Controls;
 
 namespace XamarinAdvanceDemo.Views
 {
     public partial class ManageLayout : ContentPage
     {
+        Cognitive.FaceIdentify fi;
+        List<Friends> myfrineds = new List<Friends>();
         public ManageLayout()
         {
             InitializeComponent();
+            fi = new Cognitive.FaceIdentify();
+            fi.checkGroupSetting();
+
             init();
+            AddNew.Clicked += addpeople;
+   
+        }
+    
+        public async void addpeople(object sender, EventArgs e)
+        {
+            PromptConfig pc = new PromptConfig();
+            pc.Title = "Enter User Name";
+         
+            PromptResult re = await UserDialogs.Instance.PromptAsync(pc);
+            if (await fi.AddPerson(re.Text))
+            {
+                UserDialogs.Instance.ShowError("Create Successful.");
+                init();
+            }
+            else
+                UserDialogs.Instance.ShowError("Create Fail.");
+
         }
         public async void init()
         {
-            Cognitive.FaceIdentify fi = new Cognitive.FaceIdentify();
+           
             var peoples = await fi.getPeoples();
-            var myfrineds = new List<Friends>();
+            myfrineds = new List<Friends>();
             
             foreach (var people in peoples)
             {  
-                myfrineds.Add(new Friends { Name = people.Name,PersonID = people.PersonId.ToString() });
+                myfrineds.Add(new Friends { Name = people.Name, PicNum = people.PersistedFaceIds.Count().ToString() + " train picture." });
             }
 
             peoplelist.ItemsSource = myfrineds;

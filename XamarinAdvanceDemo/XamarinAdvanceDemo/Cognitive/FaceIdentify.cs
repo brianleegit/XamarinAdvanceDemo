@@ -16,7 +16,7 @@ namespace XamarinAdvanceDemo.Cognitive
         }
         public string GetFaceID()
         {
-       
+
             return "";
         }
 
@@ -33,7 +33,7 @@ namespace XamarinAdvanceDemo.Cognitive
                     break;
                 }
             }
-            if(!exist)
+            if (!exist)
             {
                 await client.CreatePersonGroupAsync(Constant.DefaultGroupName, Constant.DefaultGroupName);
             }
@@ -42,6 +42,19 @@ namespace XamarinAdvanceDemo.Cognitive
         public async Task<Microsoft.ProjectOxford.Face.Contract.Person[]> getPeoples()
         {
             return await client.GetPersonsAsync(Constant.DefaultGroupName);
+        }
+
+        public async Task<bool> AddPerson(string name)
+        {
+            try
+            {
+                await client.CreatePersonAsync(Constant.DefaultGroupName, name);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
