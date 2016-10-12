@@ -35,7 +35,7 @@ namespace XamarinAdvanceDemo.Views
             PromptResult re = await UserDialogs.Instance.PromptAsync(pc);
             if (await fi.AddPerson(re.Text))
             {
-                UserDialogs.Instance.ShowError("Create Successful.");
+                UserDialogs.Instance.ShowSuccess("Create Successful.");
                 init();
             }
             else
