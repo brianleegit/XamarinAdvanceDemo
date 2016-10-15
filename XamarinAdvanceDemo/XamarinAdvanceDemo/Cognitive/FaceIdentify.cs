@@ -23,18 +23,18 @@ namespace XamarinAdvanceDemo.Cognitive
         // check whether the dedault group is created, if not create it.
         public async void checkGroupSetting()
         {
-            var groups = await client.ListPersonGroupsAsync();
-            var exist = false;
-            foreach (var group in groups)
+            Boolean found = true;
+            try
             {
-                if (group.PersonGroupId.Equals(Constant.DefaultGroupName))
-                {
-                    exist = true;
-                    break;
-                }
+                var exist = await client.GetPersonGroupAsync(Constant.DefaultGroupName);
             }
-            if (!exist)
+            catch (Exception e)
             {
+                found = false;
+            }
+
+            if (!found)
+            {            
                 await client.CreatePersonGroupAsync(Constant.DefaultGroupName, Constant.DefaultGroupName);
             }
         }

@@ -22,6 +22,7 @@ namespace XamarinAdvanceDemo.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             UserDialogs.Init(this);
             LoadApplication(new App());
+            
         }
     }
 }

@@ -16,6 +16,7 @@ namespace XamarinAdvanceDemo.Views
         public MainPage()
         {
             InitializeComponent();
+            CoverImage.Source = ImageSource.FromUri(new Uri("https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/14492398_1288636481167411_4214539296251359956_n.png?oh=e0ec2d72b1e79a2f481a53d7149deda0&oe=586449C4"));
             FindBtn.Clicked += OnFindBtnClicked;
             ManageBtn.Clicked += ManageBtn_Clicked;
         }
@@ -35,7 +36,7 @@ namespace XamarinAdvanceDemo.Views
                 photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
                     Directory = "MSP",
-                    Name = "MSPPhoto.jpg"
+                    Name = Guid.NewGuid().ToString()+".jpg"
                 });
             }
             else
@@ -44,16 +45,8 @@ namespace XamarinAdvanceDemo.Views
             }
             if (photo != null)
             {
-                if (Device.OS != TargetPlatform.Windows)
-                {
-                    UserDialogs.Instance.ShowSuccess("Success !");
-                }
-                else
-                {
-                    await DisplayAlert("Success", "Picture　Taken", "OK");
-                }
-                CoverImage.Source = ImageSource.FromFile(photo.Path);
-
+                //UserDialogs.Instance.ShowSuccess("Success !");
+                CoverImage.Source = ImageSource.FromFile(photo.Path);                         
             }
         }
     }

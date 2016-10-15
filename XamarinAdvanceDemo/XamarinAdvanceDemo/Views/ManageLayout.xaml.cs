@@ -15,7 +15,7 @@ namespace XamarinAdvanceDemo.Views
     public partial class ManageLayout : ContentPage
     {
         Cognitive.FaceIdentify fi;
-        List<Friends> myfrineds = new List<Friends>();
+        List<Friends> myfriends = new List<Friends>();
         public ManageLayout()
         {
             InitializeComponent();
@@ -46,14 +46,14 @@ namespace XamarinAdvanceDemo.Views
         {
            
             var peoples = await fi.getPeoples();
-            myfrineds = new List<Friends>();
+            myfriends = new List<Friends>();
             
             foreach (var people in peoples)
             {  
-                myfrineds.Add(new Friends { Name = people.Name, PicNum = people.PersistedFaceIds.Count().ToString() + " train picture." });
+                myfriends.Add(new Friends { Name = people.UserData, PicNum = people.PersistedFaceIds.Count().ToString() + " train picture." });
             }
 
-            peoplelist.ItemsSource = myfrineds;
+            peoplelist.ItemsSource = myfriends;
         }
     }
 }

@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinAdvanceDemo.Views.ManageLayout">
+             x:Class="XamarinAdvanceDemo.Views.ManageLayout"
+             Title="Manage Person Group">
   <ContentPage.Content>
-    <StackLayout>
+    <StackLayout
+      BackgroundColor="{StaticResource BrandColor}">
       <ListView x:Name ="peoplelist"
 					HasUnevenRows="true"
 					SeparatorVisibility="None" >
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <StackLayout  Margin="10,0,0,0">
-                <Label Text="{Binding Name}" FontSize="18" Margin="0,0,0,-10" />
-                <Label Text="{Binding PicNum}" FontSize="16"/>
+              <StackLayout  Margin="10">
+                <Label Text="{Binding Name}" Font="{StaticResource TitleFont}" TextColor="{StaticResource PrimaryTextColorOnDark}" Margin="5" />
+                <Label Text="{Binding PicNum}" Font="{StaticResource SubheadFont}" TextColor="{StaticResource SecondaryTextColorOnDark}" Margin="5"/>
               </StackLayout>
             </ViewCell>
           </DataTemplate>
@@ -20,17 +22,13 @@
       </ListView>
       
       <Button Text="Add People"
-            TextColor="Green"
+            TextColor="{StaticResource PrimaryTextColor}"
+            Font="{StaticResource ButtonFont}"
+            BackgroundColor="{StaticResource BrandAccentColor}"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
-            FontSize="24"
-            BorderWidth="3"
-            BorderColor="White"
-            FontAttributes="Bold"
-            BackgroundColor="#66B3FF"
-            BorderRadius="10"
-            WidthRequest="250"
-            HeightRequest="50"
+            WidthRequest = "250"
+            HeightRequest = "80"
             x:Name="AddNew"
         />
     </StackLayout>
