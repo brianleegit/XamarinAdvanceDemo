@@ -10,5 +10,6 @@ namespace XamarinAdvanceDemo
     {
         public static string FaceApiKey = "bd3c01799f104fe9a15b22a13fa3c61e";
         public static string DefaultGroupName = "myfriend";
+        public static string ApplicationURL = "https://demoadvance.azurewebsites.net";
     }
 }

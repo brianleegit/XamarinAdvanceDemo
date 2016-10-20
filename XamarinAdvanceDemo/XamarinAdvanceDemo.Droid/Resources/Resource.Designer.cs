@@ -63,6 +63,7 @@ namespace XamarinAdvanceDemo.Droid
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::XamarinAdvanceDemo.Droid.Resource.Styleable.ProgressWheel_ahText;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::XamarinAdvanceDemo.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
 			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::XamarinAdvanceDemo.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::ModernHttpClient.Resource.String.library_name = global::XamarinAdvanceDemo.Droid.Resource.String.library_name;
 			global::Splat.Resource.String.library_name = global::XamarinAdvanceDemo.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::XamarinAdvanceDemo.Droid.Resource.Attribute.actionBarSize;
 		}

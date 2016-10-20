@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Microsoft.ProjectOxford.Face;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.ProjectOxford.Face;
 
-namespace XamarinAdvanceDemo.Cognitive
+namespace XamarinAdvanceDemo.Services
 {
-    class FaceIdentify
+    public class FaceService
     {
         FaceServiceClient client;
-        public FaceIdentify()
+        public FaceService()
         {
             client = new FaceServiceClient(Constant.FaceApiKey);
         }
@@ -34,7 +34,7 @@ namespace XamarinAdvanceDemo.Cognitive
             }
 
             if (!found)
-            {            
+            {
                 await client.CreatePersonGroupAsync(Constant.DefaultGroupName, Constant.DefaultGroupName);
             }
         }
@@ -56,6 +56,5 @@ namespace XamarinAdvanceDemo.Cognitive
                 return false;
             }
         }
-
     }
 }

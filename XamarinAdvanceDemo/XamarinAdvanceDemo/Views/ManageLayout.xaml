@@ -4,19 +4,13 @@
              x:Class="XamarinAdvanceDemo.Views.ManageLayout"
              Title="Manage Person Group">
   <ContentPage.Content>
-    <StackLayout
-      BackgroundColor="{StaticResource BrandColor}">
+    <StackLayout>
       <ListView x:Name ="peoplelist"
 					HasUnevenRows="true"
 					SeparatorVisibility="None" >
         <ListView.ItemTemplate>
           <DataTemplate>
-            <ViewCell>
-              <StackLayout  Margin="10">
-                <Label Text="{Binding Name}" Font="{StaticResource TitleFont}" TextColor="{StaticResource PrimaryTextColorOnDark}" Margin="5" />
-                <Label Text="{Binding PicNum}" Font="{StaticResource SubheadFont}" TextColor="{StaticResource SecondaryTextColorOnDark}" Margin="5"/>
-              </StackLayout>
-            </ViewCell>
+            <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}" Detail="{Binding Title}"/>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
@@ -27,8 +21,7 @@
             BackgroundColor="{StaticResource BrandAccentColor}"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
-            WidthRequest = "250"
-            HeightRequest = "80"
+           
             x:Name="AddNew"
         />
     </StackLayout>
