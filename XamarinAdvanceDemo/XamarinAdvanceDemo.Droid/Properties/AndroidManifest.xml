@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="XamarinAdvanceDemo.Droid" android:installLocation="auto" android:versionCode="1" android:versionName="1">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="XamarinAdvanceDemo.Droid"></application>
+	<application android:label="XamarinAdvanceDemo.Droid" android:icon="@drawable/icon"></application>
 </manifest>
