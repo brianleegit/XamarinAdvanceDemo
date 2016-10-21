@@ -85,8 +85,10 @@ namespace XamarinAdvanceDemo.Views
                     Emotion[] emotionResult = await ec.RecognizeAsync(photo.GetStream());
                     var emotionlisit = emotionResult[0].Scores.ToRankedList().ToList();
 
+
                     UserDialogs.Instance.HideLoading();
-                    UserDialogs.Instance.ShowSuccess(persondetail.Name + "\n" + emotionlisit[0].Key);
+                    UserDialogs.Instance.Alert(persondetail.Name + "\n" + emotionlisit[0].Key);
+
                 }
                 catch(Exception ex)
                 {
