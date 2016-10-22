@@ -32,9 +32,10 @@ namespace XamarinAdvanceDemo.Views
         public async void OnFindBtnClicked(object sender, EventArgs e)
         {
             //use media plugin
+            UserDialogs.Instance.ShowLoading("Login...");
             await CrossMedia.Current.Initialize();
             MediaFile photo;
-          /*  if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported )
+            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported )
             {
                 photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
@@ -46,7 +47,7 @@ namespace XamarinAdvanceDemo.Views
             {
                 photo = await CrossMedia.Current.PickPhotoAsync();
 
-            }*/
+            }
             photo = await CrossMedia.Current.PickPhotoAsync();  //DEBUG
             if (photo != null)
             {
@@ -54,7 +55,7 @@ namespace XamarinAdvanceDemo.Views
                 CoverImage.Source = ImageSource.FromFile(photo.Path);
                 try
                 {
-                    UserDialogs.Instance.ShowLoading("Login...");
+                    
                 
                     //Login
                     FaceServiceClient fc = new FaceServiceClient(Constant.FaceApiKey);
@@ -85,17 +86,16 @@ namespace XamarinAdvanceDemo.Views
                     Emotion[] emotionResult = await ec.RecognizeAsync(photo.GetStream());
                     var emotionlisit = emotionResult[0].Scores.ToRankedList().ToList();
 
-
-                    UserDialogs.Instance.HideLoading();
                     UserDialogs.Instance.Alert(persondetail.Name + "\n" + emotionlisit[0].Key);
 
                 }
                 catch(Exception ex)
                 {
-                    UserDialogs.Instance.HideLoading();
+                   
                     UserDialogs.Instance.ShowError(ex.ToString());
                 }
             }
+            UserDialogs.Instance.HideLoading();
         }
     }
 }
