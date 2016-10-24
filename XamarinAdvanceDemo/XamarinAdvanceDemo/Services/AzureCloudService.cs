@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using Acr.UserDialogs;
+using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,16 @@ namespace XamarinAdvanceDemo.Services
         }
         public async void updateEmotion(String name, String emotion)
         {
-            MSP per = (await mspTable.Where(p => p.Name == name).ToListAsync())[0];
-            per.emotion = emotion;
-            await mspTable.UpdateAsync(per);
+            try
+            {
+                MSP per = (await mspTable.Where(p => p.Name == name).ToListAsync())[0];
+                per.emotion = emotion;
+                await mspTable.UpdateAsync(per);
+            }
+            catch
+            {
+                UserDialogs.Instance.Toast("Can't update emotion");
+            }
         }
         public async Task GenerateRandomData()
         {
