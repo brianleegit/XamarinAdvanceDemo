@@ -5,14 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using XamarinAdvanceDemo.Models;
+using XamarinAdvanceDemo.Services;
 
 namespace XamarinAdvanceDemo.Views
 {
     public partial class FeelingList : ContentPage
     {
-        public FeelingList()
+        public FeelingList(String name)
         {
             InitializeComponent();
+            this.Title = "Hello " +  name;
+            init();
+        }
+        async void init()
+        {
+            AzureCloudService azure =  new AzureCloudService(); ;
+            List<MSP> msps = await azure.CurrentClient.GetTable<MSP>().ToListAsync();
+            foreach (var msp in msps)
+            {
+                TimeSpan last = DateTime.Now - msp.updatedAt;
+                msp.emotion = msp.emotion + " last online "  + ((int)last.TotalMinutes).ToString() + " mins ago";
+            }
+            feelingshow.ItemsSource = msps;
         }
     }
 }

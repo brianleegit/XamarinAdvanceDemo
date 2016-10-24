@@ -23,8 +23,12 @@ namespace XamarinAdvanceDemo.Models
         public string Title { get;  set; } = String.Empty;
         [Microsoft.WindowsAzure.MobileServices.Version]
         public string Version { get; set; } = string.Empty;
-
-      
+        [JsonProperty(PropertyName = "emotion")]
+        public string emotion { get; set; } = String.Empty;
+        [JsonProperty(PropertyName = "lastonline")]
+        public string lastonline { get; set; } = String.Empty;
+        [Microsoft.WindowsAzure.MobileServices.UpdatedAt]
+        public DateTime updatedAt { get; set; }
 
     }
 }

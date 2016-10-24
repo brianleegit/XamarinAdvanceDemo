@@ -18,12 +18,17 @@ namespace XamarinAdvanceDemo.Services
             this.client = new MobileServiceClient(Constant.ApplicationURL);
             this.mspTable = client.GetTable<MSP>();
         }
-
+       
         public MobileServiceClient CurrentClient
         {
             get { return client; }
         }
-
+        public async void updateEmotion(String name, String emotion)
+        {
+            MSP per = (await mspTable.Where(p => p.Name == name).ToListAsync())[0];
+            per.emotion = emotion;
+            await mspTable.UpdateAsync(per);
+        }
         public async Task GenerateRandomData()
         {
             List<MSP> resList = new List<MSP> {

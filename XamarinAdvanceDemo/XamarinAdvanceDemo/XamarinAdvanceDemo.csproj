@@ -43,6 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AzureCloudService.cs" />
     <Compile Include="Services\FaceService.cs" />
+    <Compile Include="Services\ImageResizer.cs" />
     <Compile Include="Views\FeelingList.xaml.cs">
       <DependentUpon>FeelingList.xaml</DependentUpon>
     </Compile>

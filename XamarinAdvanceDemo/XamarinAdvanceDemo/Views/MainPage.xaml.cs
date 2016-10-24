@@ -11,6 +11,8 @@ using Microsoft.ProjectOxford.Face.Contract;
 using Microsoft.ProjectOxford.Emotion;
 using Microsoft.ProjectOxford.Emotion.Contract;
 using Xamarin.Forms;
+using Windows.UI.Xaml.Media.Imaging;
+using System.IO;
 
 namespace XamarinAdvanceDemo.Views
 {
@@ -35,7 +37,7 @@ namespace XamarinAdvanceDemo.Views
             UserDialogs.Instance.ShowLoading("Login...");
             await CrossMedia.Current.Initialize();
             MediaFile photo;
-            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported )
+         /*   if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported )
             {
                 photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
@@ -47,18 +49,29 @@ namespace XamarinAdvanceDemo.Views
             {
                 photo = await CrossMedia.Current.PickPhotoAsync();
 
-            }
+            }*/
             photo = await CrossMedia.Current.PickPhotoAsync();  //DEBUG
+     
             if (photo != null)
             {
                 //UserDialogs.Instance.ShowSuccess("Success !");
                 CoverImage.Source = ImageSource.FromFile(photo.Path);
                 try
                 {
-                    
-                
+                    // Image resize
+                    /* 
+                    long size = photo.GetStream().Length;
+                     byte[] image = DependencyService.Get<ImageResizer>().resize(photo,(int)(size*100/Constant.ImageSize));
+                     */
+                    long size = photo.GetStream().Length;
+                    if(size > Constant.ImageSize)
+                    {
+                        UserDialogs.Instance.ShowError("Image size is too large");
+                        return;
+                    }
                     //Login
                     FaceServiceClient fc = new FaceServiceClient(Constant.FaceApiKey);
+
                     var faceResult = await fc.DetectAsync(photo.GetStream());
                     if (faceResult.Length != 1)
                     {
@@ -80,13 +93,17 @@ namespace XamarinAdvanceDemo.Views
 
                     var personID = identyResult[0].PersonId;
                     var persondetail = await fc.GetPersonAsync(Constant.DefaultGroupName, personID);
-                    UserDialogs.Instance.ShowLoading("Detecting emotion...");
+                    UserDialogs.Instance.ShowLoading("Hi " + persondetail.Name + "\nDetecting emotion...");
                     //Update Emotion database, should have only one face in photo
                     EmotionServiceClient ec = new EmotionServiceClient(Constant.EmotionApiKey);
                     Emotion[] emotionResult = await ec.RecognizeAsync(photo.GetStream());
                     var emotionlisit = emotionResult[0].Scores.ToRankedList().ToList();
+                    UserDialogs.Instance.ShowLoading("Update emotion...");
+                    (new Services.AzureCloudService()).updateEmotion(persondetail.Name, emotionlisit[0].Key);
 
-                    UserDialogs.Instance.Alert(persondetail.Name + "\n" + emotionlisit[0].Key);
+                    await Navigation.PushAsync(new Views.FeelingList(persondetail.Name), true);
+
+                    //     UserDialogs.Instance.Alert(persondetail.Name + "\n" + emotionlisit[0].Key);
 
                 }
                 catch(Exception ex)
