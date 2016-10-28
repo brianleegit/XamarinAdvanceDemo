@@ -2,17 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinAdvanceDemo.Views.MainPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="Microsoft Student Partners in Taiwan">
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
   <StackLayout
     BackgroundColor="{StaticResource BrandColor}">
-   
-    <Image x:Name="CoverImage"
+
+    <ffimageloading:CachedImage x:Name="CoverImage"
+           
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand"
+           VerticalOptions="Center"
            WidthRequest="300"
-           HeightRequest="300"/>
+           HeightRequest="300"
+           DownsampleToViewSize="true"/>
       <Button Text="Manage Person"
                   TextColor="{StaticResource PrimaryTextColor}"
                   Font="{StaticResource ButtonFont}"

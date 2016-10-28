@@ -28,13 +28,22 @@ namespace XamarinAdvanceDemo.Services
         {
             try
             {
-                MSP per = (await mspTable.Where(p => p.Name == name).ToListAsync())[0];
-                per.emotion = emotion;
-                await mspTable.UpdateAsync(per);
+                IMobileServiceTableQuery<MSP> query = this.mspTable.Where(p => p.Name == name); //different name from azure table and face API
+                List <MSP> per = await query.ToListAsync();
+                if (per.Count > 0)
+                {
+                    per[0].emotion = emotion;
+                    await mspTable.UpdateAsync(per[0]);
+                }
+                else {
+                    UserDialogs.Instance.Toast("Can't find your data");
+                }
+
             }
-            catch
+            catch(Exception e)
             {
-                UserDialogs.Instance.Toast("Can't update emotion");
+               
+                UserDialogs.Instance.Toast("Unable to update your emotion");
             }
         }
         public async Task GenerateRandomData()

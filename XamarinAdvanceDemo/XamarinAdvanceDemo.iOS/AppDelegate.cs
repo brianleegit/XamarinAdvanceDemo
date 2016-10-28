@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using FFImageLoading.Forms.Touch;
 
 namespace XamarinAdvanceDemo.iOS
 {
@@ -24,6 +25,7 @@ namespace XamarinAdvanceDemo.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+            CachedImageRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
