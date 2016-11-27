@@ -1,5 +1,7 @@
 ﻿using Acr.UserDialogs;
+using Microsoft.ProjectOxford.Face;
 using Microsoft.WindowsAzure.MobileServices;
+using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,33 +21,47 @@ namespace XamarinAdvanceDemo.Services
             this.client = new MobileServiceClient(Constant.ApplicationURL);
             this.mspTable = client.GetTable<MSP>();
         }
-       
+
         public MobileServiceClient CurrentClient
         {
             get { return client; }
         }
-        public async void updateEmotion(String name, String emotion)
+        public async void updateEmotion(String id, String emotion)
         {
             try
             {
-                IMobileServiceTableQuery<MSP> query = this.mspTable.Where(p => p.Name == name); //different name from azure table and face API
-                List <MSP> per = await query.ToListAsync();
+                IMobileServiceTableQuery<MSP> query = this.mspTable.Where(p => p.Personid == id); //different name from azure table and face API
+                List<MSP> per = await query.ToListAsync();
                 if (per.Count > 0)
                 {
                     per[0].emotion = emotion;
                     await mspTable.UpdateAsync(per[0]);
                 }
-                else {
+                else
+                {
                     UserDialogs.Instance.Toast("Can't find your data");
                 }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-               
+
                 UserDialogs.Instance.Toast("Unable to update your emotion");
             }
         }
+        public async Task addPersion(String name, MediaFile photo, String title = "", String description = "")
+        {
+            FaceServiceClient fc = new FaceServiceClient(Constant.FaceApiKey);
+            // create persion and get persion id -> add photo -> train
+            var id = (await fc.CreatePersonAsync(Constant.DefaultGroupName, name)).PersonId;
+            await fc.AddPersonFaceAsync(Constant.DefaultGroupName, id, photo.GetStream());
+            await fc.TrainPersonGroupAsync(Constant.DefaultGroupName);
+            // register to azure
+            MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = "http://i.imgur.com/S8H91ny.png" };
+            await mspTable.InsertAsync(data);
+        }
+    
+        /*
         public async Task GenerateRandomData()
         {
             List<MSP> resList = new List<MSP> {
@@ -64,8 +80,8 @@ namespace XamarinAdvanceDemo.Services
             {
                 await mspTable.InsertAsync(res);
             }
-        }
+        }*/
 
-        
+
     }
 }

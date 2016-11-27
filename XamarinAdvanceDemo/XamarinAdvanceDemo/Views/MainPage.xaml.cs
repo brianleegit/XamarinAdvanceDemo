@@ -11,7 +11,7 @@ using Microsoft.ProjectOxford.Face.Contract;
 using Microsoft.ProjectOxford.Emotion;
 using Microsoft.ProjectOxford.Emotion.Contract;
 using Xamarin.Forms;
-using Windows.UI.Xaml.Media.Imaging;
+
 using System.IO;
 
 namespace XamarinAdvanceDemo.Views
@@ -99,7 +99,7 @@ namespace XamarinAdvanceDemo.Views
                     Emotion[] emotionResult = await ec.RecognizeAsync(photo.GetStream());
                     var emotionlisit = emotionResult[0].Scores.ToRankedList().ToList();
                     UserDialogs.Instance.ShowLoading("Update emotion...");
-                    (new Services.AzureCloudService()).updateEmotion(persondetail.Name, emotionlisit[0].Key);
+                    (new Services.AzureCloudService()).updateEmotion(persondetail.PersonId.ToString(), emotionlisit[0].Key);
 
                     await Navigation.PushAsync(new Views.FeelingList(persondetail.Name), true);
 

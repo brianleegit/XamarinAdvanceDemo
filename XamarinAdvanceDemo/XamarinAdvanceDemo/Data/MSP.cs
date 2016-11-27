@@ -10,25 +10,25 @@ namespace XamarinAdvanceDemo.Models
     public class MSP
     {
         [JsonProperty(PropertyName = "id")]
-        public string Id { get;  set; }
+        public string Id { get; set; }
         [JsonProperty(PropertyName = "name")]
-        public string Name { get;  set; } = String.Empty;
+        public string Name { get; set; } = String.Empty;
         [JsonProperty(PropertyName = "picUrl")]
         public string Image { get; set; } = String.Empty;
         [JsonIgnore]
-        public Uri PicUrl { get { return new Uri(Image); }  }
+        public Uri PicUrl { get { return new Uri(Image); } } 
         [JsonProperty(PropertyName = "description")]
-        public string Description { get;  set; } = String.Empty;
+        public string Description { get; set; } = String.Empty;
         [JsonProperty(PropertyName = "title")]
-        public string Title { get;  set; } = String.Empty;
+        public string Title { get; set; } = String.Empty;
         [Microsoft.WindowsAzure.MobileServices.Version]
         public string Version { get; set; } = string.Empty;
         [JsonProperty(PropertyName = "emotion")]
         public string emotion { get; set; } = String.Empty;
-        [JsonProperty(PropertyName = "lastonline")]
-        public string lastonline { get; set; } = String.Empty;
         [Microsoft.WindowsAzure.MobileServices.UpdatedAt]
         public DateTime updatedAt { get; set; }
+        [JsonProperty(PropertyName = "personid")]
+        public string Personid { get; set; } = String.Empty;
 
     }
 }
