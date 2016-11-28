@@ -49,15 +49,15 @@ namespace XamarinAdvanceDemo.Services
                 UserDialogs.Instance.Toast("Unable to update your emotion");
             }
         }
-        public async Task addPersion(String name, MediaFile photo, String title = "", String description = "")
+        public async Task addPerson(String name, String picUrl = "", String title = "", String description = "")
         {
             FaceServiceClient fc = new FaceServiceClient(Constant.FaceApiKey);
             // create persion and get persion id -> add photo -> train
             var id = (await fc.CreatePersonAsync(Constant.DefaultGroupName, name)).PersonId;
-            await fc.AddPersonFaceAsync(Constant.DefaultGroupName, id, photo.GetStream());
+            await fc.AddPersonFaceAsync(Constant.DefaultGroupName, id, picUrl);
             await fc.TrainPersonGroupAsync(Constant.DefaultGroupName);
             // register to azure
-            MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = "http://i.imgur.com/S8H91ny.png" };
+            MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = picUrl };
             await mspTable.InsertAsync(data);
         }
     

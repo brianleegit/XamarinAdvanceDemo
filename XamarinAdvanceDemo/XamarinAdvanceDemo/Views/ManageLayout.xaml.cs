@@ -26,37 +26,22 @@ namespace XamarinAdvanceDemo.Views
             AddNew.HeightRequest = Device.OnPlatform(60, 80, 80);
 
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
-
+            UserDialogs.Instance.ShowLoading("Loading person", MaskType.Black);
             init();
+            UserDialogs.Instance.HideLoading();
             AddNew.Clicked += addpeople;
 
         }
 
         public async void addpeople(object sender, EventArgs e)
         {
-            // === TEST ===
-            MediaFile photo = await CrossMedia.Current.PickPhotoAsync();  //DEBUG
-            AzureCloudService acs = new AzureCloudService();
-
-            await acs.addPersion("TEST1", photo);
-            UserDialogs.Instance.ShowSuccess("OK");
-            // === END TEST ===
-
+            await Navigation.PushAsync(new Views.AddPeople(), true);           
         }
         public async void init()
         {
             //await azure.GenerateRandomData();
             this.msps = await azure.CurrentClient.GetTable<MSP>().ToListAsync();
             peoplelist.ItemsSource = this.msps;
-            //var peoples = await fi.getPeoples();
-            //myfriends = new List<MSP>();
-
-            //foreach (var people in peoples)
-            //{  
-            //    myfriends.Add(new Person { Name = people.Name, PicNum = people.PersistedFaceIds.Count().ToString() + " train picture." });
-            //}
-
-
         }
     }
 }

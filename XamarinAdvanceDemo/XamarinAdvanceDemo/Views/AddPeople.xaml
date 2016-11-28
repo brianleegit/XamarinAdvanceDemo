@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinAdvanceDemo.Views.AddPeople"
+             Title="Add Person">
+  <StackLayout Padding="0,20,0,0" VerticalOptions="StartAndExpand">
+    <Label Text="Your Name" Margin="20" />
+    <Entry x:Name="name" Placeholder="Your Name" />
+    <Label Text="Your Picture URL" Margin="20" />
+    <Entry x:Name="picUrl" Placeholder="Your Picture Url" />
+    <Label Text="Description" Margin="20"/>
+    <Editor x:Name="description" Text="Description About you.." HeightRequest="100"/>
+    <Label Text="Title" Margin="20"/>
+    <Entry x:Name="title" Placeholder="Your Title ( Ex : Developer )" />
+    <Button Text="Add" 
+            TextColor="{StaticResource PrimaryTextColor}"
+            Font="{StaticResource ButtonFont}"
+            BackgroundColor="{StaticResource BrandAccentColor}"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"                
+            WidthRequest="250"
+            HeightRequest="80"
+            x:Name="AddBtn"/>    
+  </StackLayout>
+</ContentPage>

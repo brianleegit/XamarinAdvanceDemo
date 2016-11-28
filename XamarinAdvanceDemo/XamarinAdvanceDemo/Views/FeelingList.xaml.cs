@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Acr.UserDialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,9 @@ namespace XamarinAdvanceDemo.Views
         {
             InitializeComponent();
             this.Title = "Hello " +  name;
+            UserDialogs.Instance.ShowLoading("Loading person", MaskType.Black);
             init();
+            UserDialogs.Instance.HideLoading();
         }
         async void init()
         {
