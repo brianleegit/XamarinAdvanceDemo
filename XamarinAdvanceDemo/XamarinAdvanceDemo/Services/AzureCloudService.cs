@@ -51,6 +51,7 @@ namespace XamarinAdvanceDemo.Services
         }
         public async Task addPerson(String name, String picUrl = "", String title = "", String description = "")
         {
+
             FaceServiceClient fc = new FaceServiceClient(Constant.FaceApiKey);
             // create persion and get persion id -> add photo -> train
             var id = (await fc.CreatePersonAsync(Constant.DefaultGroupName, name)).PersonId;
