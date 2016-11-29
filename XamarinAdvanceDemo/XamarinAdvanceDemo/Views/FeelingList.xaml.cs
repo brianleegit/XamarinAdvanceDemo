@@ -42,28 +42,28 @@ namespace XamarinAdvanceDemo.Views
             switch(emo)
             {
                 case "Anger":
-                    re = "😡 Anger";
+                    re = "😡";
                     break;
                 case "Contempt":
-                    re = "😒 Contempt";
+                    re = "😒";
                     break;
                 case "Disgust":
-                    re = "😧 Disgust";
+                    re = "😧";
                     break;
                 case "Fear":
-                    re = "😖 Fear";
+                    re = "😖";
                     break;
                 case "Happiness":
-                    re = "😃 Happiness";
+                    re = "😃";
                     break;
                 case "Neutral":
-                    re = "😐 Neutral";
+                    re = "😐";
                     break;
                 case "Sadness":
-                    re = "😥 Sadness";
+                    re = "😥";
                     break;
                 case "Surprise":
-                    re = "😱 Surprise";
+                    re = "😱";
                     break;
             }
             return re;

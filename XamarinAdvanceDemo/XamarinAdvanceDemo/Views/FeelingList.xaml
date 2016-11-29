@@ -9,7 +9,6 @@
         <ListView.ItemTemplate>
           <DataTemplate>
             <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}"   Detail="{Binding emotion}"/>
-   
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
