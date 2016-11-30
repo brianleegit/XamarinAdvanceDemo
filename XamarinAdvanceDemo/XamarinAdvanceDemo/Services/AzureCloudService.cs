@@ -4,8 +4,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Net.Http;
 using System.Threading.Tasks;
 using XamarinAdvanceDemo.Models;
 
@@ -61,7 +60,16 @@ namespace XamarinAdvanceDemo.Services
             MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = picUrl };
             await mspTable.InsertAsync(data);
         }
-    
+        public async Task<String> uploadimg(MediaFile photo)
+        {
+        
+            var client = new HttpClient();
+            byte[] b = new byte[photo.GetStream().Length];
+            await photo.GetStream().ReadAsync(b, 0, b.Length);
+            var message = await client.PostAsync("https://goofydog.me/msp/image", new ByteArrayContent(b));
+            var recall = await message.Content.ReadAsStringAsync();
+            return recall;
+        }
         /*
         public async Task GenerateRandomData()
         {

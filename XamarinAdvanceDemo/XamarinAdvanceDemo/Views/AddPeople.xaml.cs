@@ -18,7 +18,26 @@ namespace XamarinAdvanceDemo.Views
         {
             InitializeComponent();
             AddBtn.Clicked += OnAddBtnClicked;
+            AddImage.Clicked += AddImage_Clicked;
         }
+
+        private async void AddImage_Clicked(object sender, EventArgs e)
+        {
+            AzureCloudService acs = new AzureCloudService();
+            UserDialogs.Instance.ShowLoading("Loading", MaskType.Black);
+            var photo = await CrossMedia.Current.PickPhotoAsync();
+            try
+            {
+                picUrl.Text = await acs.uploadimg(photo);
+                UserDialogs.Instance.HideLoading();
+            }
+            catch(Exception ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                UserDialogs.Instance.ShowError("Upload fail.");
+            }
+        }
+
         public async void OnAddBtnClicked(object sender, EventArgs e)
         {
             
@@ -30,7 +49,7 @@ namespace XamarinAdvanceDemo.Views
 
             UserDialogs.Instance.ShowSuccess("Person Added");
             await Navigation.PushAsync(new Views.ManageLayout(), true);
-            
+
         }
     }
 }

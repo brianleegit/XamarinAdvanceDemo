@@ -47,7 +47,7 @@ namespace XamarinAdvanceDemo.Views
                 case "Contempt":
                     re = "😒";
                     break;
-                case "Disgust":
+                case "Disgust": 
                     re = "😧";
                     break;
                 case "Fear":
