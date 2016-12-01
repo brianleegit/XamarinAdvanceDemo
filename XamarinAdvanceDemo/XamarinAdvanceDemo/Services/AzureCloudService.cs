@@ -57,7 +57,7 @@ namespace XamarinAdvanceDemo.Services
             await fc.AddPersonFaceAsync(Constant.DefaultGroupName, id, picUrl);
             await fc.TrainPersonGroupAsync(Constant.DefaultGroupName);
             // register to azure
-            MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = picUrl };
+            MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = picUrl , emotion = "Happiness" };
             await mspTable.InsertAsync(data);
         }
         public async Task<String> uploadimg(MediaFile photo)
