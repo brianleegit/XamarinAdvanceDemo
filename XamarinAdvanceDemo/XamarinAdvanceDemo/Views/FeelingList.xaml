@@ -28,7 +28,7 @@
                   </controls:CircleImage.HeightRequest>
                 </controls:CircleImage>
                 
-                <controls:CircleImage Source="{Binding PicUrl}" Aspect="AspectFill" Margin="-30,30,0,0">
+                <controls:CircleImage Source="{Binding emotionImg}" Aspect="AspectFill" Margin="-30,30,0,0">
                   <controls:CircleImage.BorderThickness>2</controls:CircleImage.BorderThickness>
                   <controls:CircleImage.BorderColor>Color.White</controls:CircleImage.BorderColor>
                   <controls:CircleImage.WidthRequest>
