@@ -20,7 +20,7 @@ namespace XamarinAdvanceDemo.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+    
             LoadApplication(new XamarinAdvanceDemo.App());
         }
     }
