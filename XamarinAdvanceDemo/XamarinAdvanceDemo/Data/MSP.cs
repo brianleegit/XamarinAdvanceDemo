@@ -31,6 +31,6 @@ namespace XamarinAdvanceDemo.Models
         public string Personid { get; set; } = String.Empty;
         [JsonIgnore]
         public Uri emotionImg { get; set; } 
-
+        
     }
 }

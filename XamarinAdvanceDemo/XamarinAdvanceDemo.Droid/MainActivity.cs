@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Acr.UserDialogs;
 using FFImageLoading.Forms.Droid;
+using ImageCircle.Forms.Plugin.Droid;
 
 namespace XamarinAdvanceDemo.Droid
 {
@@ -22,6 +23,8 @@ namespace XamarinAdvanceDemo.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            ImageCircleRenderer.Init();
+
             UserDialogs.Init(this);
             CachedImageRenderer.Init();
             LoadApplication(new App());
