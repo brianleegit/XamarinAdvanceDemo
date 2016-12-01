@@ -29,6 +29,8 @@ namespace XamarinAdvanceDemo.Models
         public DateTime updatedAt { get; set; }
         [JsonProperty(PropertyName = "personid")]
         public string Personid { get; set; } = String.Empty;
+        [JsonIgnore]
+        public Uri emotionImg { get; set; } 
 
     }
 }

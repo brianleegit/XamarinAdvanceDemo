@@ -30,9 +30,9 @@ namespace XamarinAdvanceDemo.Views
             {
                 TimeSpan last = DateTime.Now - msp.updatedAt;
                 String lastString = (last.TotalMinutes < 60) ? ((int)last.TotalMinutes).ToString() + " mins ago" : msp.updatedAt.ToString("M/d h:mm tt");
-               
+                
                 msp.emotion = eomToString(msp.emotion) + " last online "  + lastString;
-              
+                
             }
             feelingshow.ItemsSource = msps;
         }
