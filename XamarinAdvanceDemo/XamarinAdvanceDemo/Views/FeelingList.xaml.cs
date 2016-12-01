@@ -30,42 +30,43 @@ namespace XamarinAdvanceDemo.Views
             {
                 TimeSpan last = DateTime.Now - msp.updatedAt;
                 String lastString = (last.TotalMinutes < 60) ? ((int)last.TotalMinutes).ToString() + " mins ago" : msp.updatedAt.ToString("M/d h:mm tt");
-                
-                msp.emotion = eomToString(msp.emotion) + " last online "  + lastString;
-                
+                msp.emotionImg = eomToString(msp.emotion);
+                msp.emotion = " last online "  + lastString;
             }
             feelingshow.ItemsSource = msps;
         }
         String eomToString(String emo)
         {
+            
             String re ="";
             switch(emo)
             {
                 case "Anger":
-                    re = "😡";
+                    re = "anger.png";
                     break;
                 case "Contempt":
-                    re = "😒";
+                    re = "contempt.png";
                     break;
-                case "Disgust": 
-                    re = "😧";
+                case "Disgust":  
+                    re = "disgust.png";
                     break;
                 case "Fear":
-                    re = "😖";
+                    re = "fear.png";
                     break;
                 case "Happiness":
-                    re = "😃";
+                    re = "happiness.png";
                     break;
                 case "Neutral":
-                    re = "😐";
+                    re = "neutral.png";
                     break;
                 case "Sadness":
-                    re = "😥";
+                    re = "sadness.png";
                     break;
                 case "Surprise":
-                    re = "😱";
+                    re = "surprise.png";
                     break;
             }
+            //re = "surprise.png";
             return re;
         }
     }

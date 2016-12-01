@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace XamarinAdvanceDemo.Models
 {
@@ -30,7 +31,7 @@ namespace XamarinAdvanceDemo.Models
         [JsonProperty(PropertyName = "personid")]
         public string Personid { get; set; } = String.Empty;
         [JsonIgnore]
-        public Uri emotionImg { get; set; } 
+        public string emotionImg { get; set; } 
 
     }
 }

@@ -13,7 +13,7 @@
           <ViewCell>
             <StackLayout  Orientation="Vertical">
               <StackLayout Orientation="Horizontal">
-                <Image Source="{Binding PicUrl}" VisualElement.HeightRequest="50" />
+                <Image Source="{Binding emotionImg}" VisualElement.HeightRequest="50" />
                 <Label Text="{Binding Name}"
                 TextColor="#f35e20" />
                 <Label Text="{Binding emotion}"
