@@ -54,7 +54,7 @@ namespace XamarinAdvanceDemo.Views
             }
             */
 
-            photo = await CrossMedia.Current.PickPhotoAsync();  //DEBUG
+            photo = await CrossMedia.Current.PickPhotoAsync();  // DEBUG
      
             if (photo != null)
             {

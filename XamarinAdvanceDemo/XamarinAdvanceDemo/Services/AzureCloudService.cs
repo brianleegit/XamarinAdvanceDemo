@@ -40,7 +40,6 @@ namespace XamarinAdvanceDemo.Services
                 {
                     UserDialogs.Instance.Toast("Can't find your data");
                 }
-
             }
             catch (Exception e)
             {
@@ -61,8 +60,7 @@ namespace XamarinAdvanceDemo.Services
             await mspTable.InsertAsync(data);
         }
         public async Task<String> uploadimg(MediaFile photo)
-        {
-        
+        {        
             var client = new HttpClient();
             byte[] b = new byte[photo.GetStream().Length];
             await photo.GetStream().ReadAsync(b, 0, b.Length);
@@ -89,8 +87,7 @@ namespace XamarinAdvanceDemo.Services
             {
                 await mspTable.InsertAsync(res);
             }
-        }*/
-
-
+        }
+        */
     }
 }
