@@ -3,28 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinAdvanceDemo.Views.ManageLayout"
              Title="Manage Person Group">
-  <ContentPage.Content>
-    <StackLayout>
-      <ListView x:Name ="peoplelist"
-					HasUnevenRows="true"
-					SeparatorVisibility="None" >
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}" Detail="{Binding Title}"/>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-      
-      <Button Text="Add People"
-            TextColor="{StaticResource PrimaryTextColor}"
-            Font="{StaticResource ButtonFont}"
-            BackgroundColor="{StaticResource BrandAccentColor}"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand"
-           
-            x:Name="AddNew"
-        />
-    </StackLayout>
-  </ContentPage.Content>
-  
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name ="peoplelist"
+                      HasUnevenRows="true"
+					  SeparatorVisibility="None" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}" Detail="{Binding Title}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Add People"
+                TextColor="{StaticResource PrimaryTextColor}"
+                Font="{StaticResource ButtonFont}"
+                BackgroundColor="{StaticResource BrandAccentColor}"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                x:Name="AddNew"/>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
