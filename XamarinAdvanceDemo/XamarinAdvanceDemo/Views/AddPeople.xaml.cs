@@ -26,6 +26,7 @@ namespace XamarinAdvanceDemo.Views
             AzureCloudService acs = new AzureCloudService();
             UserDialogs.Instance.ShowLoading("Loading", MaskType.Black);
             var photo = await CrossMedia.Current.PickPhotoAsync();
+
             try
             {
                 picUrl.Text = await acs.uploadimg(photo);

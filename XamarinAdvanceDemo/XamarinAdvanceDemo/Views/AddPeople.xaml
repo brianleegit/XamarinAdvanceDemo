@@ -3,21 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinAdvanceDemo.Views.AddPeople"
              Title="Add Person">
-  <StackLayout Padding="0,20,0,0" VerticalOptions="StartAndExpand">
-    <Label Text="Your Name" Margin="20" />
+    <StackLayout Padding="0,20,0,0" VerticalOptions="StartAndExpand">
+        <Label Text="Your Name" Margin="20" />
     <Entry x:Name="name" Placeholder="Your Name" />
     <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
-      <Label Text="Your Picture URL" Margin="20" />
-      <Button Text="Upload Image"
-          TextColor="{StaticResource PrimaryTextColor}"
-          Font="{StaticResource ButtonFont}"
-          BackgroundColor="{StaticResource BrandAccentColor}"
-          HorizontalOptions="Center"
-          VerticalOptions="CenterAndExpand"
-          WidthRequest="150"
-          HeightRequest="40"
-          x:Name="AddImage"/>
+            <Label Text="Your Picture URL" Margin="20" />
+            <Button Text="Upload Image"
+                    TextColor="{StaticResource PrimaryTextColor}"
+                    Font="{StaticResource ButtonFont}"
+                    Background8Color="{StaticResource BrandAccentColor}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="150"
+                    HeightRequest="40"
+                    x:Name="AddImage"/>
     </StackLayout>
+        
     <Entry x:Name="picUrl" Placeholder="Your Picture Url" />
     <Label Text="Description" Margin="20"/>
     <Editor x:Name="description" Text="Description About you.." HeightRequest="100"/>
@@ -32,5 +33,5 @@
             WidthRequest="250"
             HeightRequest="80"
             x:Name="AddBtn"/>    
-  </StackLayout>
+    </StackLayout>
 </ContentPage>
