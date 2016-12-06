@@ -17,7 +17,8 @@ namespace XamarinAdvanceDemo.Views
     {
 
         List<MSP> msps = new List<MSP>();
-        AzureCloudService azure;        
+        AzureCloudService azure;
+        MSP selectedMSP = null;
         public ManageLayout()
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace XamarinAdvanceDemo.Views
             init();
             UserDialogs.Instance.HideLoading();
             AddNew.Clicked += addpeople;
+            DeleteOld.Clicked += deletepeople;
         }
 
         public async void addpeople(object sender, EventArgs e)
@@ -44,6 +46,24 @@ namespace XamarinAdvanceDemo.Views
             this.msps = await azure.CurrentClient.GetTable<MSP>().ToListAsync();
             peoplelist.ItemsSource = this.msps;
         }
+
+        private async void deletepeople(object sender, EventArgs e)
+        {
+            try
+            {
+                await azure.CurrentTable.DeleteAsync(selectedMSP);
+                init();
+            }
+            catch (Exception)
+            {                
+                await DisplayAlert("ERROR", "You need to choose a person!", "OK");
+            }
+        }
+
+        private void selectedpeople(object sender, SelectedItemChangedEventArgs e)
+        {
+            selectedMSP = (MSP)e.SelectedItem;            
+        }       
 
         protected override void OnAppearing()
         {
