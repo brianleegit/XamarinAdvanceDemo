@@ -60,7 +60,7 @@
         <Entry x:Name="description" Placeholder="Description About you.." HeightRequest="100" Margin="10"/>
 
         <Label Text="Title" Margin="10" TextColor="Black" FontSize="Medium">
-                <Label.FontFamily>
+                <Label.FontFamily>                    
                     <OnPlatform x:TypeArguments="x:String">
                         <OnPlatform.iOS></OnPlatform.iOS>
                         <OnPlatform.Android>NotoSans-BoldItalic.ttf#NotoSans-BoldItalic</OnPlatform.Android>

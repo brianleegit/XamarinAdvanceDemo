@@ -9,8 +9,7 @@
   <StackLayout
     BackgroundColor="{StaticResource BrandColor}">
 
-    <ffimageloading:CachedImage x:Name="CoverImage"
-           
+    <ffimageloading:CachedImage x:Name="CoverImage"           
            HorizontalOptions="Center"
            VerticalOptions="Center"
            WidthRequest="300"

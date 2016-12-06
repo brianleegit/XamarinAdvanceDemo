@@ -5,13 +5,27 @@
              Title="Manage Person Group">
   <ContentPage.Content>
     <StackLayout>
-      <ListView x:Name ="peoplelist"
+        <ListView x:Name ="peoplelist"
 					HasUnevenRows="true"
-					SeparatorVisibility="None" >
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}" Detail="{Binding Title}"/>
-          </DataTemplate>
+					SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--
+                        <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}" Detail="{Binding Title}"/>
+                        -->
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="5, 5, 10, 5">
+                                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Image Source="{Binding PicUrl}" HeightRequest="60" WidthRequest="60" Aspect="AspectFill"/>
+                                </StackLayout>
+                                <StackLayout Padding="10, 5, 0, 5" VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" TextColor="#FF1493"/>
+                                    <Label Text="{Binding Title}" TextColor="Gray"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
       
