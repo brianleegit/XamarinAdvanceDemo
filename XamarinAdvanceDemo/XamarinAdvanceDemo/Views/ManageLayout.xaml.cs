@@ -27,10 +27,8 @@ namespace XamarinAdvanceDemo.Views
             AddNew.HeightRequest = Device.OnPlatform(60, 80, 80);
 
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
-            UserDialogs.Instance.ShowLoading("Loading person", MaskType.Black);
 
             init();
-            UserDialogs.Instance.HideLoading();
             AddNew.Clicked += addpeople;
         }
 
@@ -40,9 +38,12 @@ namespace XamarinAdvanceDemo.Views
         }
         public async void init()
         {
+            UserDialogs.Instance.ShowLoading("Loading person", MaskType.Black);
             //await azure.GenerateRandomData();
             this.msps = await azure.CurrentClient.GetTable<MSP>().ToListAsync();
             peoplelist.ItemsSource = this.msps;
+            UserDialogs.Instance.HideLoading();
+
         }
 
         protected override void OnAppearing()
