@@ -4,37 +4,38 @@
              x:Class="XamarinAdvanceDemo.Views.MainPage"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="Microsoft Student Partners in Taiwan">
-    
-    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
-    <StackLayout
-        BackgroundColor="{StaticResource BrandColor}">
+  <StackLayout
+    BackgroundColor="{StaticResource BrandColor}">
 
-    <ffimageloading:CachedImage x:Name="CoverImage"           
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center"
-                                WidthRequest="300"
-                                HeightRequest="300"
-                                DownsampleToViewSize="true"/>
-     
-        <Button Text="Manage Person"
-                TextColor="{StaticResource PrimaryTextColor}"
-                Font="{StaticResource ButtonFont}"
-                BackgroundColor="{StaticResource BrandAccentColor}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"                
-                WidthRequest="250"
-                HeightRequest="80"
-                x:Name="ManageBtn"/>
-
-        <Button Text="Login with Camera"
-                TextColor="{StaticResource PrimaryTextColor}"
-                Font="{StaticResource ButtonFont}"
-                BackgroundColor="{StaticResource BrandAccentColor}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"                
-                WidthRequest="250"
-                HeightRequest="80"
-                x:Name="FindBtn"/>
-    </StackLayout>
+    <ffimageloading:CachedImage x:Name="CoverImage"
+           
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           WidthRequest="300"
+           HeightRequest="300"
+           DownsampleToViewSize="true"/>
+      <Button Text="Manage Person"
+                  TextColor="{StaticResource PrimaryTextColor}"
+                  Font="{StaticResource ButtonFont}"
+                  BackgroundColor="{StaticResource BrandAccentColor}"
+                  HorizontalOptions="Center"
+                  VerticalOptions="CenterAndExpand"                
+                  WidthRequest="250"
+                  HeightRequest="80"
+                  x:Name="ManageBtn"
+                  />
+      <Button Text="Login with Camera"
+              TextColor="{StaticResource PrimaryTextColor}"
+              Font="{StaticResource ButtonFont}"
+              BackgroundColor="{StaticResource BrandAccentColor}"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand"                
+              WidthRequest="250"
+              HeightRequest="80"
+              x:Name="FindBtn"
+                  />
+   
+  </StackLayout>
 </ContentPage>

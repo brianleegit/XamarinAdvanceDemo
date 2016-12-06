@@ -2,28 +2,75 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinAdvanceDemo.Views.AddPeople"
-             Title="Add Person">
-    <StackLayout Padding="0,20,0,0" VerticalOptions="StartAndExpand">
-        <Label Text="Your Name" Margin="20" />
-    <Entry x:Name="name" Placeholder="Your Name" />
-    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
-            <Label Text="Your Picture URL" Margin="20" />
-            <Button Text="Upload Image"
-                    TextColor="{StaticResource PrimaryTextColor}"
-                    Font="{StaticResource ButtonFont}"
-                    Background8Color="{StaticResource BrandAccentColor}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                    WidthRequest="150"
-                    HeightRequest="40"
-                    x:Name="AddImage"/>
-    </StackLayout>
+             Title="Add Person"
+             BackgroundColor="{StaticResource BrandColor}"
+             >
+
+<ScrollView>
+  <ContentView BackgroundColor="White"  Margin="20" >
+            
+    <StackLayout Padding="0,20,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+        <Label Text="Your Name" Margin="10" TextColor="Black" FontSize="Medium">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <OnPlatform.iOS></OnPlatform.iOS>
+                        <OnPlatform.Android>NotoSans-BoldItalic.ttf#NotoSans-BoldItalic</OnPlatform.Android>
+                        <OnPlatform.WinPhone></OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Label.FontFamily>
+        </Label>
         
-    <Entry x:Name="picUrl" Placeholder="Your Picture Url" />
-    <Label Text="Description" Margin="20"/>
-    <Editor x:Name="description" Text="Description About you.." HeightRequest="100"/>
-    <Label Text="Title" Margin="20"/>
-    <Entry x:Name="title" Placeholder="Your Title ( Ex : Developer )" />
+        <Entry x:Name="name" Placeholder="Your Name" Margin="10"/>
+      
+    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+        <Label Text="Your Picture URL" Margin="10" TextColor="Black" FontSize="Medium" >
+                <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS></OnPlatform.iOS>
+                            <OnPlatform.Android>NotoSans-BoldItalic.ttf#NotoSans-BoldItalic</OnPlatform.Android>
+                            <OnPlatform.WinPhone></OnPlatform.WinPhone>
+                        </OnPlatform>
+                </Label.FontFamily>
+        </Label>
+
+        <Button Text="Upload"
+                TextColor="{StaticResource PrimaryTextColor}"
+                Font="{StaticResource ButtonFont}"
+                FontSize="Micro"
+                BackgroundColor="{StaticResource BrandAccentColor}"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="100"
+                HeightRequest="40"
+                x:Name="AddImage"/>
+    </StackLayout>
+                            
+        <Entry x:Name="picUrl" Placeholder="https://" Margin="10"/>
+
+        <Label Text="Description" Margin="10" TextColor="Black" FontSize="Medium">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <OnPlatform.iOS></OnPlatform.iOS>
+                        <OnPlatform.Android>NotoSans-BoldItalic.ttf#NotoSans-BoldItalic</OnPlatform.Android>
+                        <OnPlatform.WinPhone></OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+      
+        <Entry x:Name="description" Placeholder="Description About you.." HeightRequest="100" Margin="10"/>
+
+        <Label Text="Title" Margin="10" TextColor="Black" FontSize="Medium">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <OnPlatform.iOS></OnPlatform.iOS>
+                        <OnPlatform.Android>NotoSans-BoldItalic.ttf#NotoSans-BoldItalic</OnPlatform.Android>
+                        <OnPlatform.WinPhone></OnPlatform.WinPhone>
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+      
+            <Entry x:Name="title" Placeholder="Your Title ( Ex : Developer )" Margin="10"/>
+      
     <Button Text="Add" 
             TextColor="{StaticResource PrimaryTextColor}"
             Font="{StaticResource ButtonFont}"
@@ -34,4 +81,7 @@
             HeightRequest="80"
             x:Name="AddBtn"/>    
     </StackLayout>
+  </ContentView>
+</ScrollView>
+    
 </ContentPage>

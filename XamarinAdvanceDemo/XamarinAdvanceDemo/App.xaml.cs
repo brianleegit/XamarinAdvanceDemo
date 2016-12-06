@@ -13,8 +13,7 @@ namespace XamarinAdvanceDemo
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new XamarinAdvanceDemo.Views.MainPage())
-            {
+            MainPage = new NavigationPage(new XamarinAdvanceDemo.Views.MainPage()) {
                 BarBackgroundColor = (Color) Application.Current.Resources["BrandColorDark"],
                 BarTextColor = (Color)Application.Current.Resources["PrimaryTextColorOnDark"]
             };

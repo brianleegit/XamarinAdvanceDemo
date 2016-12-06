@@ -15,6 +15,7 @@ namespace XamarinAdvanceDemo.Views
 {
     public partial class ManageLayout : ContentPage
     {
+
         List<MSP> msps = new List<MSP>();
         AzureCloudService azure;
         public ManageLayout()
@@ -38,7 +39,7 @@ namespace XamarinAdvanceDemo.Views
         }
         public async void init()
         {
-            // await azure.GenerateRandomData();
+            //await azure.GenerateRandomData();
             this.msps = await azure.CurrentClient.GetTable<MSP>().ToListAsync();
             peoplelist.ItemsSource = this.msps;
         }

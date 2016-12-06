@@ -3,43 +3,44 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinAdvanceDemo.Views.FeelingList"
-             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
-    <ContentPage.Content>
-        <ListView x:Name ="feelingshow"
-            HasUnevenRows="true"
-            SeparatorVisibility="None" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout  Orientation="Vertical">
-                            <StackLayout Orientation="Horizontal">
-                                <controls:CircleImage Source="{Binding PicUrl}" Aspect="AspectFill" Margin="10">
-                                    <controls:CircleImage.WidthRequest>
-                                        <OnPlatform x:TypeArguments="x:Double"
-                                                    iOS="50"
-                                                    Android="50"
-                                                    WinPhone="50"/>
-                                    </controls:CircleImage.WidthRequest>
-                                    <controls:CircleImage.HeightRequest>
+  xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+  <ContentPage.Content>
+    <ListView x:Name ="feelingshow"
+        HasUnevenRows="true"
+        SeparatorVisibility="None" >
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout  Orientation="Vertical">
+              <StackLayout Orientation="Horizontal">
+                <controls:CircleImage Source="{Binding PicUrl}" Aspect="AspectFill" Margin="10">
+                  <controls:CircleImage.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+                      iOS="50"
+                      Android="50"
+                      WinPhone="50"/>
+                  </controls:CircleImage.WidthRequest>
+                  <controls:CircleImage.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double"
+                      iOS="50"
+                      Android="50"
+                      WinPhone="50"/>
+                  </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>
+                
+                <Image Source="{Binding emotionImg}"  Margin="-30,30,0,0"  VisualElement.WidthRequest="20"   />
+                  
+              
+                <Label Text="{Binding Name}"
+                TextColor="#f35e20" />
+                <Label Text="{Binding emotion}"
+                  TextColor="#f35e20" />
+              </StackLayout>
+            </StackLayout>
+          </ViewCell>
 
-                                        <OnPlatform x:TypeArguments="x:Double"
-                                                    iOS="50"
-                                                    Android="50"
-                                                    WinPhone="50"/>
-                                    </controls:CircleImage.HeightRequest>
-                                </controls:CircleImage>
-
-                                <Image Source="{Binding emotionImg}"  Margin="-30,30,0,0"  VisualElement.WidthRequest="20"   />
-                                <Label Text="{Binding Name}"
-                                       TextColor="#f35e20" />
-
-                                <Label Text="{Binding emotion}"
-                                       TextColor="#f35e20" />
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </ContentPage.Content>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </ContentPage.Content>
 </ContentPage>
