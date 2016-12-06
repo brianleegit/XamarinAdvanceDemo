@@ -36,13 +36,19 @@ namespace XamarinAdvanceDemo.Views
 
         public async void addpeople(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Views.AddPeople(), true);           
+            await Navigation.PushAsync(new Views.AddPeople(), true);            
         }
         public async void init()
         {
             //await azure.GenerateRandomData();
             this.msps = await azure.CurrentClient.GetTable<MSP>().ToListAsync();
             peoplelist.ItemsSource = this.msps;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            init();
         }
     }
 }

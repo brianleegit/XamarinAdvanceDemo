@@ -48,8 +48,9 @@ namespace XamarinAdvanceDemo.Views
             UserDialogs.Instance.HideLoading();
 
             UserDialogs.Instance.ShowSuccess("Person Added");
-            await Navigation.PushAsync(new Views.ManageLayout(), true);
-
+            // await Navigation.PushAsync(new Views.ManageLayout(), true);
+            
+            await Navigation.PopAsync();        
         }
     }
 }
