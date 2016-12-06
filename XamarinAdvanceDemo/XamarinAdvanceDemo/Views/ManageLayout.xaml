@@ -6,14 +6,11 @@
   <ContentPage.Content>
     <StackLayout>
         <ListView x:Name ="peoplelist"
-					HasUnevenRows="true"
-					SeparatorVisibility="None">
+                  HasUnevenRows="true"
+				  SeparatorVisibility="None"
+                  ItemSelected="selectedpeople">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <!--
-                        <ImageCell Text="{Binding Name}" ImageSource="{Binding PicUrl}" Detail="{Binding Title}"/>
-                        -->
-
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" Padding="5, 5, 10, 5">
                                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
@@ -28,15 +25,28 @@
                     </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-      
-      <Button Text="Add People"
+        
+        <Button Text="Delete Member"
+	       	TextColor="{StaticResource PrimaryTextColor}"
+            Font="{StaticResource ButtonFont}"
+            BackgroundColor="{StaticResource BrandAccentColor}"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+			HeightRequest = "50"
+			WidthRequest = "200"
+			x:Name = "DeleteOld"
+			Margin="0, 0, 0, 5"
+	  />
+            <Button Text="Add People"
             TextColor="{StaticResource PrimaryTextColor}"
             Font="{StaticResource ButtonFont}"
             BackgroundColor="{StaticResource BrandAccentColor}"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
-           
+            HeightRequest = "50"
+			WidthRequest = "200"
             x:Name="AddNew"
+            Margin="0, 5, 0, 0"
         />
     </StackLayout>
   </ContentPage.Content>

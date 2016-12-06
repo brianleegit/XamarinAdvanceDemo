@@ -25,6 +25,11 @@ namespace XamarinAdvanceDemo.Services
         {
             get { return client; }
         }
+
+        public IMobileServiceTable<MSP> CurrentTable
+        {
+            get { return mspTable; }
+        }
         public async void updateEmotion(String id, String emotion)
         {
             try
@@ -70,6 +75,7 @@ namespace XamarinAdvanceDemo.Services
             var recall = await message.Content.ReadAsStringAsync();
             return recall;
         }
+      
         /*
         public async Task GenerateRandomData()
         {
