@@ -223,6 +223,33 @@
       <Name>XamarinAdvanceDemo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\disgust.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\happiness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\neutral.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sadness.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\surprise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\anger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\contempt.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -30,11 +30,12 @@
                 
                 <Image Source="{Binding emotionImg}"  Margin="-30,30,0,0"  VisualElement.WidthRequest="20"   />
                   
-              
-                <Label Text="{Binding Name}"
-                TextColor="#f35e20" />
-                <Label Text="{Binding emotion}"
+                 <StackLayout  Orientation="Vertical" Margin ="10,0">
+                  <Label Text="{Binding Name}" FontSize="25"
                   TextColor="#f35e20" />
+                  <Label Text="{Binding emotion}"
+                  TextColor="#3c414c" />
+                 </StackLayout>
               </StackLayout>
             </StackLayout>
           </ViewCell>
