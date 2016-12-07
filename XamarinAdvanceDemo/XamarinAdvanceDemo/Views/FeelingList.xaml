@@ -28,7 +28,7 @@
                   </controls:CircleImage.HeightRequest>
                 </controls:CircleImage>
                 
-                <Image Source="{Binding emotionImg}"  Margin="-30,30,0,0"  VisualElement.WidthRequest="20"   />
+                <Image Source="{Binding emotionImg}"  Margin="-30,30,0,0"  WidthRequest="20"/>
                   
                  <StackLayout  Orientation="Vertical" Margin ="10,0">
                   <Label Text="{Binding Name}" FontSize="25"

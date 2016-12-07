@@ -14,7 +14,7 @@ namespace XamarinAdvanceDemo.Views
 {
     public partial class FeelingList : ContentPage
     {
-        public FeelingList(String name)
+        public FeelingList(string name)
         {
             InitializeComponent();
             this.Title = "Hello " +  name;
@@ -29,16 +29,16 @@ namespace XamarinAdvanceDemo.Views
             foreach (var msp in msps)
             {
                 TimeSpan last = DateTime.Now - msp.updatedAt;
-                String lastString = (last.TotalMinutes < 60) ? ((int)last.TotalMinutes).ToString() + " mins ago" : msp.updatedAt.ToString("M/d h:mm tt");
+                string lastString = (last.TotalMinutes < 60) ? ((int)last.TotalMinutes).ToString() + " mins ago" : msp.updatedAt.ToString("M/d h:mm tt");
                 msp.emotionImg = eomToString(msp.emotion);
                 msp.emotion = " last online "  + lastString;
             }
             feelingshow.ItemsSource = msps;
         }
-        String eomToString(String emo)
+        string eomToString(string emo)
         {
-            
-            String re ="";
+
+            string re ="";
             switch(emo)
             {
                 case "Anger":
