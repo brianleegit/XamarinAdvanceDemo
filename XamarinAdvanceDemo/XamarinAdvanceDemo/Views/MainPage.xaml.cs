@@ -36,6 +36,7 @@ namespace XamarinAdvanceDemo.Views
             //use media plugin
             UserDialogs.Instance.ShowLoading("Login...");
             await CrossMedia.Current.Initialize();
+            UserDialogs.Instance.HideLoading();
             MediaFile photo;
          /*   if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported )
             {

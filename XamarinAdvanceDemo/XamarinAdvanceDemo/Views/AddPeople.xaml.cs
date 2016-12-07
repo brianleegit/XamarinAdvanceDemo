@@ -25,7 +25,12 @@ namespace XamarinAdvanceDemo.Views
         {
             AzureCloudService acs = new AzureCloudService();
             UserDialogs.Instance.ShowLoading("Loading", MaskType.Black);
+            await CrossMedia.Current.Initialize();
+            UserDialogs.Instance.HideLoading();
+
             var photo = await CrossMedia.Current.PickPhotoAsync();
+            
+
             try
             {
                 picUrl.Text = await acs.uploadimg(photo);
@@ -50,7 +55,7 @@ namespace XamarinAdvanceDemo.Views
             UserDialogs.Instance.ShowSuccess("Person Added");
             // await Navigation.PushAsync(new Views.ManageLayout(), true);
             
-            await Navigation.PopAsync();        
+            await Navigation.PopAsync(true);
         }
     }
 }

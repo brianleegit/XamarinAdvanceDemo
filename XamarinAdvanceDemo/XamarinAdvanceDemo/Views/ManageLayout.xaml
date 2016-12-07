@@ -7,12 +7,14 @@
     <StackLayout>
         <ListView x:Name ="peoplelist"
                   HasUnevenRows="true"
-				  SeparatorVisibility="None"
-                  ItemSelected="selectedpeople">
+				  SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="5, 5, 10, 5">
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="deletepeople" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"/>
+                            </ViewCell.ContextActions>
+                                <StackLayout Orientation="Horizontal" Padding="5, 5, 10, 5">
                                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
                                     <Image Source="{Binding PicUrl}" HeightRequest="60" WidthRequest="60" Aspect="AspectFill"/>
                                 </StackLayout>
@@ -26,17 +28,6 @@
         </ListView.ItemTemplate>
       </ListView>
         
-        <Button Text="Delete Member"
-	       	TextColor="{StaticResource PrimaryTextColor}"
-            Font="{StaticResource ButtonFont}"
-            BackgroundColor="{StaticResource BrandAccentColor}"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand"
-			HeightRequest = "50"
-			WidthRequest = "200"
-			x:Name = "DeleteOld"
-			Margin="0, 0, 0, 5"
-	  />
             <Button Text="Add People"
             TextColor="{StaticResource PrimaryTextColor}"
             Font="{StaticResource ButtonFont}"

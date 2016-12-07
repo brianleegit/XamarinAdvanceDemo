@@ -30,8 +30,7 @@ namespace XamarinAdvanceDemo.Views
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 
             init();
-            AddNew.Clicked += addpeople;
-            DeleteOld.Clicked += deletepeople;
+            AddNew.Clicked += addpeople;            
         }
 
         public async void addpeople(object sender, EventArgs e)
@@ -48,17 +47,20 @@ namespace XamarinAdvanceDemo.Views
 
         }
 
-        private async void deletepeople(object sender, EventArgs e)
+        public async void deletepeople(object sender, EventArgs e)
         {
+            var mi = (MenuItem)sender;
+
             try
             {
+                selectedMSP = (MSP)mi.BindingContext;
                 await azure.CurrentTable.DeleteAsync(selectedMSP);
                 init();
             }
-            catch (Exception)
+            catch (Exception ex)
             {                
-                await DisplayAlert("ERROR", "You need to choose a person!", "OK");
-            }
+                await DisplayAlert("ERROR", ex.ToString(), "OK");
+            }            
         }
 
         private void selectedpeople(object sender, SelectedItemChangedEventArgs e)
