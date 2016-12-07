@@ -2,8 +2,8 @@
 We use [Microsoft Cognitive Services Face API](https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview) in login function, following are some brief descriptions of this service.
 
 ## Group and Training
-Before we start facing identification, we should tell the service about us. We create a group and send some picture with the name of the person in them.
-![](https://i.imgur.com/6dps4sl.jpg)
+Before we start facing identification, we should tell the service about us. We create a group and send some picture with the name of the person in them.<br>
+![](https://i.imgur.com/6dps4sl.jpg)<br>
 (Image from [Face API Documentation](https://www.microsoft.com/cognitive-services/en-us/face-api/documentation/overview))
 
 In our Xamarin demo project, we use the nuget package [Microsoft Cognitive Services Face API](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/).
