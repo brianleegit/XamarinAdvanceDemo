@@ -65,13 +65,17 @@ namespace XamarinAdvanceDemo.Services
             MSP data = new MSP { Name = name, Title = title, Description = description, Personid = id.ToString() , Image = picUrl , emotion = "Happiness" };
             await mspTable.InsertAsync(data);
         }
+        /*  
+            upload to msp azure blob account
+            server code: https://github.com/oscar60310/mspimg
+        */
         public async Task<String> uploadimg(MediaFile photo)
         {
         
             var client = new HttpClient();
             byte[] b = new byte[photo.GetStream().Length];
             await photo.GetStream().ReadAsync(b, 0, b.Length);
-            var message = await client.PostAsync("https://goofydog.me/msp/image", new ByteArrayContent(b));
+            var message = await client.PostAsync("https://msp11.azurewebsites.net/image", new ByteArrayContent(b));
             var recall = await message.Content.ReadAsStringAsync();
             return recall;
         }
